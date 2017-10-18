@@ -1,0 +1,31 @@
+body{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0;
+}
+
+.container-fluid{
+  padding: 0 30px;
+  height: 100%;
+  position: relative;
+}
+
+.font-deli{font-family: 'Delius', cursive;}
+
+.rel{position: relative;}
+.abs{position: absolute;}
+.fixed{position: fixed;}
+
+.v-centered{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.h-centered{margin: 0 auto;}
+
+.text-center{text-align: center;}
+
+
+.w-200{width: 200px;}

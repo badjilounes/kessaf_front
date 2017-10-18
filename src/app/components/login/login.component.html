@@ -1,0 +1,37 @@
+<div class="container-fluid">
+
+  <mat-card class="login-card v-centered h-centered">
+
+    <h1 class="login-heading">authentification</h1>
+
+    <form novalidate>
+      <mat-form-field [color]="'primary'">
+        <input matInput class="user-input"
+               placeholder="Nom de compte" [type]="'text'">
+      </mat-form-field>
+
+      <mat-form-field [color]="'primary'">
+        <input matInput class="pass-input"
+               placeholder="Mot de passe" [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </mat-form-field>
+
+      <div class="h-centered w-200">
+
+        <button mat-raised-button color="primary"
+                type="submit" class="login-btn"
+                (click)="login()">
+          CONNEXION
+        </button>
+
+        <p class="subscribe-heading">Pas de compte ?
+          <a class="subscribe-link">S'inscrire</a>
+        </p>
+
+      </div>
+
+    </form>
+
+  </mat-card>
+
+</div>

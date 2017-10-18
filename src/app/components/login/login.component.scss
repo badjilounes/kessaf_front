@@ -1,0 +1,77 @@
+@import "../../../mat-theme.scss";
+@import "../../../assets/scss/theme";
+
+:host{
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: mat-color($dark-primary);
+}
+
+.login-card{
+  height: 300px;
+  min-width: 250px;
+  max-width: 350px;
+  position: relative;
+  display: block;
+}
+
+.login-card{
+  border-radius: 8px;
+  background-color: $login-card-bg;
+  padding: 24px;
+}
+
+.login-heading{
+  font-family: 'Delius', cursive;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 20px;
+  height: 34px;
+  line-height: 34px;
+  margin-bottom: 25px;
+  color: $login-heading-color;
+}
+
+.subscribe-heading{
+  font-family: 'Delius', cursive;
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+  color: $black;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.subscribe-link{
+  color: $link-color;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.login-btn{
+  width: 200px;
+  margin-top: 27px;
+}
+
+.user-input{
+  font-family: 'Delius', cursive;
+  font-weight: 600;
+  font-size: 14px;
+  height: 22px;
+  line-height: 22px;
+  width: 100%;
+}
+
+.pass-input{
+  font-family: 'Delius', cursive;
+  font-weight: 600;
+  font-size: 14px;
+  height: 22px;
+  line-height: 22px;
+  width: 100%;
+}
+
+.mat-form-field{width: 100%}
