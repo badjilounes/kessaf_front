@@ -1,0 +1,9 @@
+@import "../../../../mat-theme.scss";
+@import "../../../../assets/scss/theme";
+
+:host {
+  height: 58px;
+  display: block;
+  position: relative;
+  background-color: mat-color($candy-app-primary);
+}

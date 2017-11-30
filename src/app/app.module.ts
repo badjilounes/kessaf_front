@@ -7,21 +7,40 @@ import {MaterialModule} from "./material.module";
 import {OverlayContainer} from "@angular/cdk/overlay";
 import { LoginComponent } from './components/login/login.component';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import { HomeComponent } from './components/home/home.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { SidenavComponent } from './components/menu/sidenav/sidenav.component';
+import { HeaderComponent } from './components/menu/header/header.component';
+import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ApiService } from './services/api/api.service';
+import {HttpModule} from "@angular/http";
+import {Ng2Webstorage} from "ngx-webstorage";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    MenuComponent,
+    SidenavComponent,
+    HeaderComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    Ng2Webstorage
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR' },
     {provide: LocationStrategy, useClass: HashLocationStrategy},
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

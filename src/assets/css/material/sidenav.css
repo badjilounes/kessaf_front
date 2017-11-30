@@ -1,0 +1,12 @@
+.mat-sidenav-container{
+  position: relative;
+  height: 100%;
+}
+
+.expanded .mat-drawer-content{
+  margin-left: 235px !important;
+}
+
+.reduced .mat-drawer-content{
+  margin-left: 56px !important;
+}

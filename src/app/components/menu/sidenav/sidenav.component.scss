@@ -1,0 +1,36 @@
+@import "../../../../mat-theme.scss";
+@import "../../../../assets/scss/theme";
+
+:host{
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+  background-color: mat-color($candy-app-primary);
+  overflow-x: hidden;
+}
+
+.list-group-item{
+  width: 100%;
+  height: 60px;
+  min-width: 56px;
+}
+
+[mat-raised-button]{
+  background-color: transparent;
+}
+
+[mat-raised-button].list-group-item{
+  box-shadow: none;
+}
+
+[mat-raised-button].user-btn{
+  box-shadow: none;
+  width: 100%;
+  height: 56px;
+  min-width: 56px;
+  padding: 5px;
+}
+
+[mat-tooltip].menu-tooltip{
+  background-color: mat-color($dark-primary);
+}

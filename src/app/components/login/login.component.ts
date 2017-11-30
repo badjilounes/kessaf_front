@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../../services/api/api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -8,14 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   hide = false;
+  username = '';
+  password = '';
 
-  constructor() { }
+  constructor(public api: ApiService, public router: Router) { }
 
   ngOnInit() {
   }
 
   login(): void {
-    console.log('login in progress ...');
+    // this.api.post('login', {username: this.username, password: this.password }, true).toPromise().then(
+    //   val => console.log(val), error => console.log(error)
+    // );
+    this.router.navigate(['home']);
   }
 
 }
