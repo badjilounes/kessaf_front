@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import {LocalStorage} from "ngx-webstorage";
 
 @Component({
@@ -7,7 +7,10 @@ import {LocalStorage} from "ngx-webstorage";
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
+
   @LocalStorage() reduce: boolean;
+
+  @Input() sideMode: 'over'|'side';
   @Output() toggleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {}

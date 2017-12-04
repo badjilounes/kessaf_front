@@ -16,6 +16,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ApiService } from './services/api/api.service';
 import {HttpModule} from "@angular/http";
 import {Ng2Webstorage} from "ngx-webstorage";
+import {metaReducer} from "./common/index";
+import {StoreModule} from "@ngrx/store";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {Ng2DeviceDetectorModule} from "ng2-device-detector";
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import {Ng2Webstorage} from "ngx-webstorage";
     ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
-    Ng2Webstorage
+    Ng2Webstorage,
+    NgbModule.forRoot(),
+    StoreModule.forRoot({ reducer: metaReducer }),
+    Ng2DeviceDetectorModule.forRoot()
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR' },
