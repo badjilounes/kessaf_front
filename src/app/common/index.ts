@@ -1,26 +1,44 @@
 /* Import createSelector from reselect to make selection of different parts of the state fast efficient */
-import { createSelector } from 'reselect';
 
 /* Import the store logger to log all the actions to the console */
 import {storeLogger} from "ngrx-store-logger";
 
-/* Import the layout state */
-import * as fromLayout from "./layout/layout.reducer" ;
+/* Import the sidebar state */
+import * as fromSidebar from "./sidebar/sidebar.reducer" ;
+
+import {combineReducers, ActionReducer, ActionReducerMap, createSelector} from "@ngrx/store";
+import {environment} from "../../environments/environment";
+import {SidebarState} from "../model/redux/sidebar/sidebarState.model";
 import {compose} from "@ngrx/core";
-import {combineReducers} from "@ngrx/store";
+import {sidebar} from "./sidebar/sidebar.reducer";
 
-export interface AppState { reducer: { layout: fromLayout.State; }; }
+sidebar(null, { type: '@ngrx/store/init' });
 
-export const reducers = { layout: fromLayout.reducer };
-
-const developmentReducer:Function = compose(storeLogger(), combineReducers)(reducers);
-
-export function metaReducer(state: any, action: any) {
-  return developmentReducer(state, action);
+export interface AppState {
+  sidebar: SidebarState
 }
 
-/** * Layout selectors */
+export const reducers = {
+  sidebar: sidebar
+};
 
-export const getLayoutState = (state: AppState) => state.reducer.layout;
+const developmentReducer: Function = compose(storeLogger(), combineReducers)(reducers);
+const productionReducer: ActionReducer<AppState> = combineReducers(reducers);
 
-export const getLayoutOpenedModalName = createSelector(getLayoutState , fromLayout.getOpenedModalName);
+export function reducer(state: any, action: any) {
+  if (environment.production) {
+    return productionReducer(state, action);
+  } else {
+    return developmentReducer(state, action);
+  }
+}
+
+/** Sidebar selectors **/
+
+export const getSidebarState = (state: AppState) => state.sidebar;
+
+export const getSidebarReduce = createSelector(getSidebarState , fromSidebar.isReduced);
+
+export const getSidebarMode = createSelector(getSidebarState , fromSidebar.getSidebarMode);
+
+/** End sidebar selectors **/
