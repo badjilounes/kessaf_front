@@ -3,10 +3,22 @@
   height: 100%;
 }
 
-.expanded .mat-drawer-content{
+.opened .mat-drawer-content{
+  margin-left: 0 !important;
+}
+
+.expanded:not(.opened) .mat-drawer-content{
   margin-left: 235px !important;
 }
 
-.reduced .mat-drawer-content{
+.reduced:not(.opened) .mat-drawer-content{
   margin-left: 56px !important;
 }
+
+
+/** buttons **/
+[mat-fab].expand-reduce-btn > .mat-button-wrapper {
+  padding: 0;
+  height: 24px;
+}
+/** end buttons **/

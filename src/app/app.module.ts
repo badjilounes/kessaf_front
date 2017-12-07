@@ -16,6 +16,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ApiService } from './services/api/api.service';
 import {HttpModule} from "@angular/http";
 import {Ng2Webstorage} from "ngx-webstorage";
+import {reducer} from "./common/index";
+import {StoreModule} from "@ngrx/store";
+import {Ng2DeviceDetectorModule} from "ng2-device-detector";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {environment} from "../environments/environment";
+import {sidebar} from "./common/sidebar/sidebar.reducer";
 
 @NgModule({
   declarations: [
@@ -35,7 +41,12 @@ import {Ng2Webstorage} from "ngx-webstorage";
     ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
-    Ng2Webstorage
+    Ng2Webstorage,
+    Ng2DeviceDetectorModule.forRoot(),
+    StoreModule.forRoot({
+      sidebar: sidebar
+    }),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR' },

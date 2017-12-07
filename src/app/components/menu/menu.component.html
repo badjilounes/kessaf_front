@@ -1,18 +1,23 @@
 <mat-sidenav-container class="sidenav-container"
-                       [ngClass]="{'reduced': reduce && opened, 'expanded': !reduce && opened}">
+                       [ngClass]="{'reduced': (reduced$| async) && sidenav.opened, 'expanded': !(reduced$| async) && sidenav.opened}">
 
-  <mat-sidenav class="w-transition" [mode]="sideMode" [opened]="opened" #sidenav [style.min-width.px]="56"
-               [ngClass]="{'w-56': reduce, 'w-235': !reduce, 'w-0': !opened}">
+  <mat-sidenav class="w-transition"  #sidenav [style.min-width.px]="56"
+               [ngClass]="{'w-56': (reduced$| async), 'w-235': !(reduced$| async), 'w-0': !sidenav.opened}"
+               [mode]="sideMode$| async">
 
     <lbt-sidenav class="w-100-pct" [style.min-width.px]="56"
-                 (toggleEmitter)="sidenav.toggle();opened=!opened"></lbt-sidenav>
+                 [sideMode]="sideMode$| async"
+                 [reduce]="reduced$| async"
+                 (toggleEmitter)="sidenav.toggle()"
+                 (reduceEmitter)="toggleSidebarWidth($event)">
+    </lbt-sidenav>
 
   </mat-sidenav>
 
   <div class="display-f f-dir-col h-100-pct w-100-pct abs">
 
     <div class="f-0-0 w-100-pct rel h-58">
-      <lbt-header (toggleEmitter)="sidenav.toggle();opened=!opened"></lbt-header>
+      <lbt-header (toggleEmitter)="sidenav.toggle()"></lbt-header>
     </div>
 
     <div class="display-f flex-auto h-100-pct min-h-0 rel ovf-auto p-16-20">

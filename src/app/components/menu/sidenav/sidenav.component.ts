@@ -1,14 +1,17 @@
-import {Component, OnInit, EventEmitter, Output} from '@angular/core';
-import {LocalStorage} from "ngx-webstorage";
+import {Component, OnInit, EventEmitter, Output, Input, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
   selector: 'lbt-sidenav',
   templateUrl: './sidenav.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
-  @LocalStorage() reduce: boolean;
+
+  @Input() reduce: boolean;
+  @Input() sideMode: 'over'|'side';
   @Output() toggleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() reduceEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {}
 
@@ -19,6 +22,6 @@ export class SidenavComponent implements OnInit {
   }
 
   expandOrReduce(): void {
-    this.reduce = !this.reduce;
+    this.reduceEmitter.emit(!this.reduce);
   }
 }
