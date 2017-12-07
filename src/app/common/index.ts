@@ -6,7 +6,7 @@ import {storeLogger} from "ngrx-store-logger";
 /* Import the sidebar state */
 import * as fromSidebar from "./sidebar/sidebar.reducer" ;
 
-import {combineReducers, ActionReducer, ActionReducerMap, createSelector} from "@ngrx/store";
+import {combineReducers, ActionReducer, createSelector} from "@ngrx/store";
 import {environment} from "../../environments/environment";
 import {SidebarState} from "../model/redux/sidebar/sidebarState.model";
 import {compose} from "@ngrx/core";

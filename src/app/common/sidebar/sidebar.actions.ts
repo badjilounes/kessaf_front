@@ -9,8 +9,8 @@ export const SidebarActionTypes = {
 
 export class SetUIModeSidebarAction implements Action {
   readonly type = SidebarActionTypes.SET_UI_MODE;
-  mode: 'over'|'slide';
-  constructor(mode: 'over'|'slide') {
+  mode: 'over'|'side';
+  constructor(mode: 'over'|'side') {
     this.mode = mode;
   }
 }
