@@ -4,26 +4,45 @@
 
     <h1 class="login-heading">{{headingTxt}}</h1>
 
-    <div [ngSwitch]="wannaSubscribe">
-      <div *ngSwitchCase="true">
+    <div [ngSwitch]="wannaSubscribe" class="rel w-100-pct">
+      <div *ngSwitchCase="true" class="rel w-100-pct">
 
-        <form [formGroup]="subscriptionForm" novalidate>
+        <form [formGroup]="subscriptionForm">
 
-          <label class="font-delius fs-14 black-font m-l-4">Surnom Lounsy</label>
+          <label class="label-font"
+                 [ngClass]="{'color-red-imp squeeze-animation': formValidated &&
+                 !(subscriptionForm.controls['username'].valid)}">
+            Surnom Lounsy
+          </label>
 
-          <input matInput class="user-input" [type]="'text'"  formControlName="username">
+          <input class="form-control input-font"
+                 [type]="'text'"  formControlName="username" />
 
-          <label class="font-delius fs-14 black-font m-l-4">Adresse e-mail</label>
+          <label class="label-font"
+                 [ngClass]="{'color-red-imp squeeze-animation': formValidated &&
+                 !(subscriptionForm.controls['email'].valid)}">
+            Adresse e-mail
+          </label>
 
-          <input matInput class="user-input" [type]="'text'" formControlName="email">
+          <input class="form-control input-font"
+                 [type]="'text'" formControlName="email" />
 
-          <label class="font-delius fs-14 black-font m-l-4">Téléphone</label>
+          <label class="label-font"
+                 [ngClass]="{'color-red-imp squeeze-animation': formValidated &&
+                 !(subscriptionForm.controls['phone'].valid)}">
+            Téléphone
+          </label>
 
-          <input matInput class="user-input" [type]="'text'" formControlName="phone">
+          <input class="form-control input-font"
+                 [type]="'text'" formControlName="phone" />
 
-          <label class="font-delius fs-14 black-font m-l-4">Mot de passe</label>
+          <label class="label-font"
+                 [ngClass]="{'color-red-imp squeeze-animation': formValidated && !(subscriptionForm.controls['password'].valid)}">
+            Mot de passe
+          </label>
 
-          <input matInput class="user-input" [type]="hidePass ? 'password' : 'text'" formControlName="password">
+          <input class="form-control input-font"
+                 [type]="hidePass ? 'password' : 'text'" formControlName="password" />
 
           <div class="rel w-100-pct m-t-12">
 
@@ -36,26 +55,26 @@
         </form>
 
       </div>
-      <div *ngSwitchDefault>
+      <div *ngSwitchDefault class="rel w-100-pct">
 
         <form [formGroup]="loginForm" novalidate>
 
-          <label class="font-delius fs-14 black-font m-l-4">Identifiants</label>
+          <label class="label-font">Identifiants</label>
 
-          <input matInput class="user-input" [type]="'text'"  formControlName="usernameMobileMail">
+          <input class="form-control input-font w-100-pct" [type]="'text'"  formControlName="usernameMobileMail" />
 
-          <label class="font-delius fs-14 black-font m-l-4">Mot de passe</label>
+          <label class="label-font">Mot de passe</label>
 
-          <input matInput class="pass-input" [type]="hidePass ? 'password' : 'text'" formControlName="password">
+          <input class="form-control input-font w-100-pct" [type]="hidePass ? 'password' : 'text'" formControlName="password" />
 
-          <p class="subscribe-heading">Pas de compte ?
-            <a class="subscribe-link" [routerLink]="['/signup']">S'inscrire</a>
+          <p class="signup-link">Pas de compte ?
+            <a class="color-blue hand" [routerLink]="['/signup']">S'inscrire</a>
           </p>
 
           <div class="rel w-100-pct m-t-12">
 
             <button mat-fab [color]="'primary'" type="submit" class="login-btn" (click)="login()">
-              <mat-icon>check</mat-icon>
+              <mat-icon>chevron_right</mat-icon>
             </button>
 
           </div>

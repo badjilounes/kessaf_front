@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Router, Params} from "@angular/router";
+import {Component, OnInit, NgZone, ChangeDetectorRef} from '@angular/core';
+import {Router} from "@angular/router";
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {ApiService} from "../../services/api/api.service";
 import {UserLoginInput} from "../../model/app/auth/input/login/login.input";
@@ -19,12 +19,14 @@ export class LoginComponent implements OnInit {
   userSubscription: UserSubscriptionInput = {username: '', email: '', phone: '', password: ''};
 
   wannaSubscribe: boolean;
+  formValidated = false;
 
   headingTxt: string;
-
   hidePass = true;
 
-  constructor(public router: Router, private fb: FormBuilder,public api: ApiService) {}
+  constructor(public router: Router, private fb: FormBuilder,
+              public zone: NgZone, public cdr: ChangeDetectorRef,
+              public api: ApiService) {}
 
   ngOnInit() {
     this.getRouterInfo();
@@ -48,8 +50,8 @@ export class LoginComponent implements OnInit {
 
     this.subscriptionForm = this.fb.group({
       username: [this.userSubscription.username, Validators.required, Validators.minLength(5)],
-      email: [this.userSubscription.email],
-      phone: [this.userSubscription.phone],
+      email: [this.userSubscription.email, Validators.required],
+      phone: [this.userSubscription.phone, Validators.required],
       password: [this.userSubscription.password, Validators.compose([Validators.required, Validators.minLength(9)])]
     });
   }
@@ -59,11 +61,26 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.router.navigate(['home']);
+    // this.router.navigate(['home']);
+    this.checkForm();
+  }
+
+  checkForm(): void {
+    this.formValidated = false;
+    this.zone.runOutsideAngular(() => {
+      setTimeout(() => {
+        this.zone.run(() => {
+          this.formValidated = true;
+          this.cdr.markForCheck();
+        });
+      }, 200);
+    });
   }
 
   subscribe(): void {
-    this.router.navigate(['login']);
+    // this.router.navigate(['login']);
+    console.log('trying to subscribe ...');
+    this.checkForm();
   }
 
 }

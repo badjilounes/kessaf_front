@@ -5,6 +5,10 @@ body{
   margin: 0;
 }
 
+input:focus{
+  outline: none;
+}
+
 .container-fluid{
   padding: 0 30px;
   height: 100%;

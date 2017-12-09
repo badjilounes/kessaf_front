@@ -1,14 +1,20 @@
 /* CSS CLASS */
 $white: #ffffff;
 $black: #333333;
+$black-light: #505050;
 $grey: #7d7d7d;
 $grey-light: #dadada;
-$grey-lighten: #eee;
+$grey-lighten: #eeeeee;
 $blue: #4a90e2;
+$red: #cb3c3c;
 /* END CSS CLASS */
 
 /* CSS CLASS */
 $login-card-bg: $white;
-$login-heading-color: $grey;
-$link-color: $blue;
+$login-heading-color: $black-light;
+$login-label-color: $grey;
+$login-input-color: $black-light;
+$signup-txt-color: $black;
 /* END CSS CLASS */
+
+
