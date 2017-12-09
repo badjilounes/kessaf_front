@@ -1,0 +1,10 @@
+@import "../../../mat-theme.scss";
+@import "../../../assets/scss/theme";
+
+.snackbar-error{
+  padding: 12px !important;
+  background-color: #cb3c3c !important;
+  margin-bottom: 8px !important;
+  min-height: 36px;
+  min-width: 235px !important;
+}
