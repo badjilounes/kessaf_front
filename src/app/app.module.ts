@@ -11,12 +11,10 @@ import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SidenavComponent } from './components/menu/sidenav/sidenav.component';
 import { HeaderComponent } from './components/menu/header/header.component';
-import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ApiService } from './services/api/api.service';
 import {HttpModule} from "@angular/http";
 import {Ng2Webstorage} from "ngx-webstorage";
-import {reducer} from "./common/index";
 import {StoreModule} from "@ngrx/store";
 import {Ng2DeviceDetectorModule} from "ng2-device-detector";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
@@ -30,8 +28,7 @@ import {sidebar} from "./common/sidebar/sidebar.reducer";
     HomeComponent,
     MenuComponent,
     SidenavComponent,
-    HeaderComponent,
-    SubscribeComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

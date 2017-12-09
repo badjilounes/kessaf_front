@@ -4,56 +4,56 @@
          [height]="'48'"
          [width]="'48'"/>
   </div>
-  <p class="white-font text-left m-b-0 m-t-0 fw-bold fs-14 m-l-60 hlh-24 uppercase">Fooles</p>
-  <p class="white-font text-left m-b-0 m-t-0 fw-bold fs-12 m-l-60 hlh-24">Lounes Badji</p>
+  <p class="font-delius white-font text-left m-b-0 m-t-0 fw-bold fs-14 m-l-60 hlh-24 uppercase">Fooles</p>
+  <p class="font-delius white-font text-left m-b-0 m-t-0 fw-bold fs-12 m-l-60 hlh-24">Lounes Badji</p>
 </button>
 <button class="list-group-item" (click)="toggleSidebar()" mat-raised-button
         [routerLink]="'/dashboard'" [routerLinkActive]="['router-link-active']"
         [matTooltip]="reduce ? 'Accueil' : ''" [matTooltipPosition]="'after'" [matTooltipClass]="'menu-tooltip'">
   <mat-icon class="pull-left hlh-60 white-font">home</mat-icon>
-  <p class="hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font ">{{ 'Accueil' }}</p>
+  <p class="font-delius hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font ">{{ 'Accueil' }}</p>
 </button>
 <button class="list-group-item" (click)="toggleSidebar()" mat-raised-button
         [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']"
         [matTooltip]="reduce ? 'Statistiques' : ''" [matTooltipPosition]="'after'" [matTooltipClass]="'menu-tooltip'">
   <mat-icon  class="pull-left hlh-60 white-font">assessment</mat-icon>
-  <p class="hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Statistiques' }}</p>
+  <p class="font-delius hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Statistiques' }}</p>
 </button>
 <button class="list-group-item" (click)="toggleSidebar()" mat-raised-button
         [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']"
         [matTooltip]="reduce ? 'Ressources' : ''" [matTooltipPosition]="'after'" [matTooltipClass]="'menu-tooltip'">
   <mat-icon  class="pull-left hlh-60 white-font">accessibility</mat-icon>
-  <p class="hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Ressources' }}</p>
+  <p class="font-delius hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Ressources' }}</p>
 </button>
 <button class="list-group-item" (click)="toggleSidebar()" mat-raised-button
         [routerLink]="['/forms']" [routerLinkActive]="['router-link-active']"
         [matTooltip]="reduce ? 'Facture' : ''" [matTooltipPosition]="'after'" [matTooltipClass]="'menu-tooltip'">
   <mat-icon  class="pull-left hlh-60 white-font">attach_money</mat-icon>
-  <p class="hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Facture' }}</p>
+  <p class="font-delius hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Facture' }}</p>
 </button>
 <button class="list-group-item" (click)="toggleSidebar()" mat-raised-button
         [routerLink]="['/bs-element']" [routerLinkActive]="['router-link-active']"
         [matTooltip]="reduce ? 'Frais' : ''" [matTooltipPosition]="'after'" [matTooltipClass]="'menu-tooltip'">
   <mat-icon  class="pull-left hlh-60 white-font">monetization_on</mat-icon>
-  <p class="hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Frais' }}</p>
+  <p class="font-delius hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Frais' }}</p>
 </button>
 <button class="list-group-item" (click)="toggleSidebar()" mat-raised-button
         [routerLink]="['/contrat']" [routerLinkActive]="['router-link-active']"
         [matTooltip]="reduce ? 'Contrats' : ''" [matTooltipPosition]="'after'" [matTooltipClass]="'menu-tooltip'">
   <mat-icon  class="pull-left hlh-60 white-font">account_balance_wallet</mat-icon>
-  <p class="hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Contrats' }}</p>
+  <p class="font-delius hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Contrats' }}</p>
 </button>
 <button class="list-group-item" (click)="toggleSidebar()" mat-raised-button
         [routerLink]="['/components']" [routerLinkActive]="['router-link-active']"
         [matTooltip]="reduce ? 'Suivi de mission' : ''" [matTooltipPosition]="'after'" [matTooltipClass]="'menu-tooltip'">
   <mat-icon  class="pull-left hlh-60 white-font">today</mat-icon>
-  <p class="hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Suivi de mission' }}</p>
+  <p class="font-delius hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Suivi de mission' }}</p>
 </button>
 <button class="list-group-item" (click)="toggleSidebar()" mat-raised-button
         [routerLink]="['/blank_page']" [routerLinkActive]="['router-link-active']"
         [matTooltip]="reduce ? 'Aide' : ''" [matTooltipPosition]="'after'" [matTooltipClass]="'menu-tooltip'">
   <mat-icon  class="pull-left hlh-60 white-font">help</mat-icon>
-  <p class="hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Aide' }}</p>
+  <p class="font-delius hlh-60 text-left m-l-50 m-b-0 m-t-0 white-font">{{ 'Aide' }}</p>
 </button>
 
 <div class="w-100-pct rel" [hidden]="sideMode != 'side'">

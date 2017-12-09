@@ -20,7 +20,7 @@ body{
 .h-centered{margin: 0 auto;}
 
 /* text and font */
-.font-deli{font-family: 'Delius', cursive;}
+.font-delius{font-family: 'Delius', cursive;}
 .text-center{text-align: center;}
 .text-left{text-align: left;}
 .text-right{text-align: right;}
@@ -38,6 +38,7 @@ body{
 .p-8-16{ padding: 8px 16px; }
 .p-16-20{ padding: 16px 20px; }
 
+.m-l-4{margin-left: 4px;}
 .m-l-20{ margin-left: 20px; }
 .m-l-50{ margin-left: 50px; }
 .m-l-60{ margin-left: 60px; }
@@ -48,6 +49,7 @@ body{
 .m-b-0{ margin-bottom: 0; }
 
 .m-t-0{margin-top: 0;}
+.m-t-12{margin-top: 12px;}
 
 .hlh-24{ height: 24px; line-height: 24px; }
 .hlh-48{ height: 48px; line-height: 48px; }
@@ -80,6 +82,9 @@ body{
   -webkit-flex: 0 0 auto;
   flex: 0 0 auto;
 }
+.justify-center{justify-content: center;}
+.justify-left{justify-content: flex-start;}
+.justify-right{justify-content: flex-end;}
 
 .ovf-auto{ overflow: auto; }
 

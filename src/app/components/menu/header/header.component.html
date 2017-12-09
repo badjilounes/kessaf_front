@@ -1,9 +1,28 @@
 <div class="display-f f-dir-row w-100-pct h-58">
 
-  <button mat-fab (click)="toggleSidebar()" class="menu-btn"
-          [style.background-color]="'transparent'"
-          [style.box-shadow]="'none'">
-    <mat-icon aria-label="menu">menu</mat-icon>
-  </button>
+  <div class="display-f f-dir-row h-58 justify-left f-0-0">
+    <button mat-fab (click)="toggleSidebar()" class="menu-btn"
+            [style.background-color]="'transparent'"
+            [style.box-shadow]="'none'">
+      <mat-icon aria-label="menu">menu</mat-icon>
+    </button>
+  </div>
+
+  <div class="display-f f-dir-row flex-auto h-58 w-100-pct justify-right">
+
+    <button mat-fab class="settings-btn"
+            [style.background-color]="'transparent'"
+            [style.box-shadow]="'none'" [matMenuTriggerFor]="settingsMenu">
+      <mat-icon aria-label="settings">settings</mat-icon>
+    </button>
+
+    <mat-menu #settingsMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Déconnexion</span>
+      </button>
+    </mat-menu>
+
+  </div>
 
 </div>
