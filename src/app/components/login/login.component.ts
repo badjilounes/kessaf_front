@@ -4,6 +4,10 @@ import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {ApiService} from "../../services/api/api.service";
 import {UserLoginInput} from "../../model/app/auth/input/login/login.input";
 import {UserSubscriptionInput} from "../../model/app/auth/input/subscription/user.input";
+import {MatSnackBar, MatSnackBarConfig} from "@angular/material";
+import {SnackbarComponent} from "../utils/snackbar/snackbar.component";
+import {SnackType} from "../../enum/snackbar/snackType.enum";
+import {SnackInfoInput} from "../../model/app/auth/input/snackInfo/snackInfo.input";
 
 @Component({
   selector: 'app-login',
@@ -20,12 +24,15 @@ export class LoginComponent implements OnInit {
 
   wannaSubscribe: boolean;
   formValidated = false;
+  snackTypeEnum = SnackType;
 
   headingTxt: string;
   hidePass = true;
 
+
   constructor(public router: Router, private fb: FormBuilder,
               public zone: NgZone, public cdr: ChangeDetectorRef,
+              public snackBar: MatSnackBar,
               public api: ApiService) {}
 
   ngOnInit() {
@@ -75,6 +82,28 @@ export class LoginComponent implements OnInit {
         });
       }, 200);
     });
+
+    if (this.wannaSubscribe) {
+          if (!this.subscriptionForm.valid) {
+
+            let snackInfo: SnackInfoInput = {
+              type: this.snackTypeEnum.error,
+              message: "Nom de compte ou mot de passe incorrect"
+            };
+
+            let config: MatSnackBarConfig = {
+              duration: 3000,
+              extraClasses: ['snackbar-error'],
+              data: snackInfo
+            };
+
+            this.snackBar.openFromComponent(SnackbarComponent, config);
+          }
+    } else {
+      if (!this.loginForm.valid) {
+
+      }
+    }
   }
 
   subscribe(): void {

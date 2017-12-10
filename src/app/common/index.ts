@@ -12,10 +12,8 @@ import {SidebarState} from "../model/redux/sidebar/sidebarState.model";
 import {compose} from "@ngrx/core";
 import {sidebar} from "./sidebar/sidebar.reducer";
 
-sidebar(null, { type: '@ngrx/store/init' });
-
 export interface AppState {
-  sidebar: SidebarState
+  sidebar: SidebarState,
 }
 
 export const reducers = {

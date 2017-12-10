@@ -1,0 +1,20 @@
+<div [ngSwitch]="snackInfo.type">
+  <div *ngSwitchCase="snackTypeEnum.error">
+
+    <div class="error-container">
+
+      <p class="error-txt-font">{{snackInfo.message}}</p>
+
+    </div>
+
+  </div>
+  <div *ngSwitchDefault>
+
+    <div class="info-container">
+
+      <p class="info-txt-font">{{snackInfo.message}}</p>
+
+    </div>
+
+  </div>
+</div>

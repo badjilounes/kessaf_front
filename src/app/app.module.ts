@@ -20,6 +20,8 @@ import {Ng2DeviceDetectorModule} from "ng2-device-detector";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment";
 import {sidebar} from "./common/sidebar/sidebar.reducer";
+import { SnackbarComponent } from './components/utils/snackbar/snackbar.component';
+import { AutofocusDirective } from './directives/autofocus/autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {sidebar} from "./common/sidebar/sidebar.reducer";
     HomeComponent,
     MenuComponent,
     SidenavComponent,
-    HeaderComponent
+    HeaderComponent,
+    SnackbarComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,9 @@ import {sidebar} from "./common/sidebar/sidebar.reducer";
       sidebar: sidebar
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : []
+  ],
+  entryComponents: [
+    SnackbarComponent
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR' },

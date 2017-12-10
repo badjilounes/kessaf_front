@@ -9,39 +9,39 @@
 
         <form [formGroup]="subscriptionForm">
 
-          <label class="label-font"
+          <label class="label-font" for="username"
                  [ngClass]="{'color-red-imp squeeze-animation': formValidated &&
                  !(subscriptionForm.controls['username'].valid)}">
             Surnom Lounsy
           </label>
 
-          <input class="form-control input-font"
+          <input class="form-control input-font focus" id="username"
                  [type]="'text'"  formControlName="username" />
 
-          <label class="label-font"
+          <label class="label-font" for="email"
                  [ngClass]="{'color-red-imp squeeze-animation': formValidated &&
                  !(subscriptionForm.controls['email'].valid)}">
             Adresse e-mail
           </label>
 
-          <input class="form-control input-font"
+          <input class="form-control input-font" id="email"
                  [type]="'text'" formControlName="email" />
 
-          <label class="label-font"
+          <label class="label-font" for="phone"
                  [ngClass]="{'color-red-imp squeeze-animation': formValidated &&
                  !(subscriptionForm.controls['phone'].valid)}">
             Téléphone
           </label>
 
-          <input class="form-control input-font"
+          <input class="form-control input-font" id="phone"
                  [type]="'text'" formControlName="phone" />
 
-          <label class="label-font"
+          <label class="label-font" for="password"
                  [ngClass]="{'color-red-imp squeeze-animation': formValidated && !(subscriptionForm.controls['password'].valid)}">
             Mot de passe
           </label>
 
-          <input class="form-control input-font"
+          <input class="form-control input-font" id="password"
                  [type]="hidePass ? 'password' : 'text'" formControlName="password" />
 
           <div class="rel w-100-pct m-t-12">
@@ -59,13 +59,13 @@
 
         <form [formGroup]="loginForm" novalidate>
 
-          <label class="label-font">Identifiants</label>
+          <label class="label-font" for="usr">Identifiants</label>
 
-          <input class="form-control input-font w-100-pct" [type]="'text'"  formControlName="usernameMobileMail" />
+          <input class="form-control input-font focus" id="usr" [type]="'text'"  formControlName="usernameMobileMail" />
 
-          <label class="label-font">Mot de passe</label>
+          <label class="label-font" for="pwd">Mot de passe</label>
 
-          <input class="form-control input-font w-100-pct" [type]="hidePass ? 'password' : 'text'" formControlName="password" />
+          <input class="form-control input-font" id="pwd" [type]="hidePass ? 'password' : 'text'" formControlName="password" />
 
           <p class="signup-link">Pas de compte ?
             <a class="color-blue hand" [routerLink]="['/signup']">S'inscrire</a>
