@@ -19,7 +19,7 @@ export class ApiService {
     }
 
 
-    let header = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'};
+    let header = {'Content-Type': 'application/json; charset=UTF-8'};
 
     let headers: Headers = new Headers(header);
     let options: RequestOptions = new RequestOptions({ headers: headers, params: option});
