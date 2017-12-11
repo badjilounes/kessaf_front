@@ -1,8 +1,9 @@
-import {Component, OnInit, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
   selector: 'lbt-header',
   templateUrl: './header.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {

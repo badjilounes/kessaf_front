@@ -1,6 +1,6 @@
 import {Component, OnInit, NgZone, ChangeDetectorRef} from '@angular/core';
 import {Router} from "@angular/router";
-import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {FormGroup, FormBuilder, Validators, FormControl} from "@angular/forms";
 import {ApiService} from "../../services/api/api.service";
 import {UserLoginInput} from "../../model/app/auth/input/login/login.input";
 import {UserSubscriptionInput} from "../../model/app/auth/input/subscription/user.input";
@@ -56,9 +56,25 @@ export class LoginComponent implements OnInit {
     });
 
     this.subscriptionForm = this.fb.group({
-      username: [this.userSubscription.username, Validators.required, Validators.minLength(5)],
-      email: [this.userSubscription.email, Validators.required],
-      phone: [this.userSubscription.phone, Validators.required],
+      username: [this.userSubscription.username,
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(5)
+        ])
+      ],
+      email: [this.userSubscription.email,
+        Validators.compose([
+          Validators.required,
+          Validators.email
+        ])
+      ],
+      phone: [
+        this.userSubscription.phone,
+        Validators.compose([
+          Validators.required,
+          this.phoneValidator
+        ])
+      ],
       password: [this.userSubscription.password, Validators.compose([Validators.required, Validators.minLength(9)])]
     });
   }
@@ -84,21 +100,21 @@ export class LoginComponent implements OnInit {
     });
 
     if (this.wannaSubscribe) {
-          if (!this.subscriptionForm.valid) {
+      if (!this.subscriptionForm.valid) {
 
-            let snackInfo: SnackInfoInput = {
-              type: this.snackTypeEnum.error,
-              message: "Nom de compte ou mot de passe incorrect"
-            };
+        let snackInfo: SnackInfoInput = {
+          type: this.snackTypeEnum.error,
+          message: "Nom de compte ou mot de passe incorrect"
+        };
 
-            let config: MatSnackBarConfig = {
-              duration: 3000,
-              extraClasses: ['snackbar-error'],
-              data: snackInfo
-            };
+        let config: MatSnackBarConfig = {
+          duration: 3000,
+          extraClasses: ['snackbar-error'],
+          data: snackInfo
+        };
 
-            this.snackBar.openFromComponent(SnackbarComponent, config);
-          }
+        this.snackBar.openFromComponent(SnackbarComponent, config);
+      }
     } else {
       if (!this.loginForm.valid) {
 
@@ -110,6 +126,10 @@ export class LoginComponent implements OnInit {
     // this.router.navigate(['login']);
     console.log('trying to subscribe ...');
     this.checkForm();
+  }
+
+  phoneValidator(c: FormControl): any {
+
   }
 
 }

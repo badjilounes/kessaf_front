@@ -37,7 +37,8 @@
                  [type]="'text'" formControlName="phone" />
 
           <label class="label-font" for="password"
-                 [ngClass]="{'color-red-imp squeeze-animation': formValidated && !(subscriptionForm.controls['password'].valid)}">
+                 [ngClass]="{'color-red-imp squeeze-animation': formValidated &&
+                 !(subscriptionForm.controls['password'].valid)}">
             Mot de passe
           </label>
 
