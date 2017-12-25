@@ -25,7 +25,7 @@
           </label>
 
           <input class="form-control input-font" id="email"
-                 [type]="'text'" formControlName="email" />
+                 [type]="'email'" formControlName="email" />
 
           <label class="label-font" for="phone"
                  [ngClass]="{'color-red-imp squeeze-animation': formValidated &&
@@ -34,7 +34,7 @@
           </label>
 
           <input class="form-control input-font" id="phone"
-                 [type]="'text'" formControlName="phone" />
+                 [type]="'tel'" formControlName="phone" />
 
           <label class="label-font" for="password"
                  [ngClass]="{'color-red-imp squeeze-animation': formValidated &&
@@ -47,7 +47,7 @@
 
           <div class="rel w-100-pct m-t-12">
 
-            <button mat-fab [color]="'primary'" type="submit" class="login-btn" (click)="subscribe()">
+            <button mat-fab [color]="'primary'" type="submit" class="login-btn" (click)="checkForm()">
               <mat-icon>check</mat-icon>
             </button>
 
@@ -62,11 +62,13 @@
 
           <label class="label-font" for="usr">Identifiants</label>
 
-          <input class="form-control input-font focus" id="usr" [type]="'text'"  formControlName="usernameMobileMail" />
+          <input class="form-control input-font focus" id="usr"
+                 [type]="'text'"  formControlName="usernameMobileMail" />
 
           <label class="label-font" for="pwd">Mot de passe</label>
 
-          <input class="form-control input-font" id="pwd" [type]="hidePass ? 'password' : 'text'" formControlName="password" />
+          <input class="form-control input-font" id="pwd"
+                 [type]="hidePass ? 'password' : 'text'" formControlName="password" />
 
           <p class="signup-link">Pas de compte ?
             <a class="color-blue hand" [routerLink]="['/signup']">S'inscrire</a>
@@ -74,7 +76,7 @@
 
           <div class="rel w-100-pct m-t-12">
 
-            <button mat-fab [color]="'primary'" type="submit" class="login-btn" (click)="login()">
+            <button mat-fab [color]="'primary'" type="submit" class="login-btn" (click)="checkForm()">
               <mat-icon>chevron_right</mat-icon>
             </button>
 

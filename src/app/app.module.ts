@@ -22,6 +22,7 @@ import {environment} from "../environments/environment";
 import {sidebar} from "./common/sidebar/sidebar.reducer";
 import { SnackbarComponent } from './components/utils/snackbar/snackbar.component';
 import { AutofocusDirective } from './directives/autofocus/autofocus.directive';
+import { LoginService } from './services/login/login.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { AutofocusDirective } from './directives/autofocus/autofocus.directive';
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR' },
     {provide: LocationStrategy, useClass: HashLocationStrategy},
-    ApiService
+    ApiService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })
