@@ -1,4 +1,4 @@
-export interface UserSubscriptionInput {
+export interface ApiSubscriptionInput {
   username: string;
   email?: string;
   phone?: string;
